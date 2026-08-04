@@ -4276,6 +4276,7 @@ static void valueFlowAfterAssign(const TokenList &tokenlist,
                         continue;
                     const Token* expr = value.tokvalue;
                     value.intvalue = -value.intvalue;
+                    value.invertBound();
                     value.tokvalue = tok->astOperand1();
 
                     // Skip if it intersects with an already assigned symbol
