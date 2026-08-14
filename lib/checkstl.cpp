@@ -1867,6 +1867,9 @@ void CheckStlImpl::redundantCondition()
         const Token *var3 = var2->tokAt(7);
         const Token *any2 = var3->tokAt(4);
 
+        if (any2->tokAt(3) != scope.bodyEnd)
+            continue;
+
         // Check if all the "%name%" fields are the same and if all the "%any%" are the same..
         if (var1->str() == var2->str() &&
             var2->str() == var3->str() &&
